@@ -48,11 +48,13 @@ def fill_missing_values(df: pd.DataFrame) -> pd.DataFrame:
 
     # Case 1: absent feature, text -> "None"
     for col in _NONE_COLUMNS:
-        df[col] = df[col].fillna("None")
+        if col in df.columns:
+            df[col] = df[col].fillna("None")
 
     #Case2: absent features, numeric -> 0
     for col in _ZERO_COLUMNS:
-        df[col] = df[col].fillna(0)
+        if col in df.columns:
+            df[col] = df[col].fillna(0)
 
     # Case 3a: remaining text -> most frequent value
     for col in df.select_dtypes(include=["str"]).columns:
