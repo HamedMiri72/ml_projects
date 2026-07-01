@@ -14,7 +14,7 @@ The evaluation metric is Root Mean Squared Error on log-transformed sale prices,
 
 ## Project structure
 
-​​```
+​​```text
 house-prices/
 ├── data/                    # raw CSVs (not tracked in git)
 ├── models/                  # trained model artifacts (not tracked)
