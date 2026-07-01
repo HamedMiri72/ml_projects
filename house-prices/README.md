@@ -14,7 +14,7 @@ The evaluation metric is Root Mean Squared Error on log-transformed sale prices,
 
 ## Project structure
 
-​​```text
+```text
 house-prices/
 ├── data/                    # raw CSVs (not tracked in git)
 ├── models/                  # trained model artifacts (not tracked)
@@ -29,7 +29,7 @@ house-prices/
 ├── main.py                  # runs the full pipeline
 ├── requirements.txt
 └── README.md
-​```
+```
 
 ## Approach
 
@@ -40,27 +40,34 @@ house-prices/
 
 ## Setup
 
-​```bash
+```bash
+# Create and activate a virtual environment
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
+
+# Install dependencies
 pip install -r requirements.txt
-​```
+```
 
 Download the competition data from Kaggle and place `train.csv`, `test.csv`, and `sample_submission.csv` in the `data/` directory.
 
 ## Usage
 
-​```bash
+Run the complete pipeline (load, preprocess, train, predict) with one command:
+
+```bash
 python main.py
-​```
+```
 
 This trains the model, saves it to `models/`, and writes `submission.csv` in the project root, ready to upload to Kaggle.
 
 ## Testing
 
-​```bash
+```bash
 python -m pytest tests/ -v
-​```
+```
+
+The preprocessing pipeline is covered by unit tests verifying that missing values are filled correctly, categorical columns are fully encoded, and functions do not mutate their inputs.
 
 ## Tech stack
 
